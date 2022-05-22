@@ -14,25 +14,19 @@ public class Program {
 	public static void main(String[] args) {
 
 		List<Employee> list = new ArrayList<>();
-		
-		String path = "C:\\temp\\int2.txt";
 
-		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+		list.add(new Employee("Bernardo", 7500.00));
+		list.add(new Employee("Ana", 3000.00));
+		list.add(new Employee("Leo", 5000.00));
+		list.add(new Employee("Armando", 2800.00));
+		list.add(new Employee("Pedro", 3100.00));
+		list.add(new Employee("Sandra", 7000.00));
 
-			String employeeCsv = br.readLine();
-			while (employeeCsv != null) {
-				String[] fields = employeeCsv.split(",");
-				list.add(new Employee(fields[0], Double.parseDouble(fields[1])));
-				employeeCsv = br.readLine();
-			}
-
-			Collections.sort(list);
-			for (Employee emp : list) {
-				System.out.println(emp.getName() + ", " + emp.getSalary());
-			}
-		} catch (IOException e) {
-			System.out.println("Error: " + e.getMessage());
+		Collections.sort(list);
+		for (Employee emp : list) {
+			System.out.println(emp.getName() + ", " + emp.getSalary());
 		}
+
 	}
 
 }
